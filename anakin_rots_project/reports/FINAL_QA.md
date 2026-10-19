@@ -83,3 +83,30 @@ is **not** mirrored, so the frame's styling is applied with the sides swapped). 
   temple and down the cheek, part side pushed back over the ear, both ears covered, chin-length sides with
   outward-curling ends, flat crown. Does not match: the part is on the opposite side from the photo by the user's
   decision, and the frame's wave is one smooth thick lock whereas here it is a group of straight-hanging cards.
+
+
+---
+# Variant 4 — `output/variant_4_promo_photo/` (stage F, un-mirrored, from variant 3 / stage En)
+Built to match `references/ref_target_promo_front.jpg`. Checks from `reports/qa_geometry_F.json`:
+
+| Check | HairPlanes_M | hair_cap |
+|---|---|---|
+| Vertices / triangles | 9519 / 10432 | 704 / 1230 |
+| Non-finite / degenerate tris / unweighted verts | 0 / 0 / 0 | 0 / 0 / 0 |
+| Faces identical (vertex sets) / UVs identical | True / max diff 0.0 | True / max diff 0.0 |
+| Mirror / winding / group names | none / original / original | none; cap positions unchanged (0.0e+00 m) |
+| Round trip (fresh import of the FBX) | 9519 verts, max position diff 2.2e-08 m, 15 groups | 704 verts, 4 groups |
+| Skeleton in FBX / units | `Reference`, 247 bones / UnitScaleFactor 100, Y-up, +Z front | |
+
+* Side/back tip height (|az| > 45°, el < 30°): median 1.625 m, 10th pct 1.579 (target jaw line 1.59–1.61; chin 1.576).
+* Hair-to-skin signed distance (mm) 1st/5th/50th pct: original -1.2 / 3.6 / 20.6 → variant 4 -0.5 / 4.2 / 23.7; vertices pushed deeper than the shipped clearance by > 1 mm: 12.
+* Card length ratio vs original: min 0.80, median 0.99, 95th pct 1.35, max 1.38 (cap 0.80–1.35 applied to the scale steps; the max above the cap comes from post-scale bends changing the root-to-tip chord).
+* Eye zone: 0 cards with vertices below z 1.715 in front of the face.
+* Vertex displacement vs original: mean 10.4 mm, 95th pct 39.8 mm, max 107.5 mm.
+* Visual: `comparison/F_vs_promo_big.jpg` (photo beside front and three-quarter), `comparison/F_vs_promo.jpg`
+  (all four views), `original_vs_final.png`, `lighting_side_and_mustafar.png`, `gameplay_distance_zoom.png`.
+* Matches the photo: part side, open forehead with the sweep over the top, soft lock down his right temple,
+  rounded jaw-length bob, outward-flipped ends, ears mostly hidden, moderate rounded crown.
+  Does not match: the photo's thick smooth curl masses (the sides remain strand-like card groups), its lighter
+  golden colour (textures and preview material untouched), and the ears are hidden rather than fully covered in
+  profile.

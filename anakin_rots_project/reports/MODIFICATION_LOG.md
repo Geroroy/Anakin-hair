@@ -15,6 +15,13 @@ All geometry edits are scripted and reproducible: `scripts/stage_A_silhouette.py
   the part side pushed back over the ear, chin-length sides curling outward, flat crown. (A mirrored build, stage E,
   was made first and discarded at the user's request; `working/E.blend` is the only trace.)
 
+* `output/variant_3_saved_latest/`: frozen copy of the latest reconstruction (= variant 2 geometry, stage En) kept at
+  the user's request as the starting point for variant 4.
+* `output/variant_4_promo_photo/`: stage F (`stage_F_promo.py`, SRC=En), built to match the promo front photo
+  `references/ref_target_promo_front.jpg`: compact rounded jaw-length bob, grouped outward-up flip curls, full sides,
+  open forehead with one soft lock at his right temple, soft S-waves. No mirror (the photo's part is on his right,
+  same as the game asset).
+
 **Variant 1 = stage D of the un-mirrored variant** (`MIRROR=0`: stages An → Bn → Cn → D). The mirrored
 variant (stages A → B → C, part on Anakin's left as in the film) was built first; the user reviewed the evidence
 (`reports/part_side_evidence.jpg`, `reports/variants_original_vs_unmirrored_vs_mirrored.jpg`) and chose to keep the
@@ -54,6 +61,16 @@ authored wave shape and its texture mapping.
 | En | §3b | Part-side volume over the ear: lower halves lifted 5–11° | 38 cards |
 | En | §4 | Sweep-side ends curled outward 10–18° | 94 cards |
 | En | §5 | Crown flattened: tips tilted up to 8° toward the scalp | 32 cards |
+| F (variant 4) | `stage_F_promo.py` §1–2 | Side/back cards hanging below the jaw line shortened to z = 1.600 | 87 cards, k ≥ 0.80 of original |
+| F | §4a | Compact silhouette: tips > 34 mm off the skin bent toward it (≤ 22°) | 162 cards |
+| F | §4b | Side volume: 8–14° lift off the skull; ear-zone tips ~20 mm forward; ear cards lengthened toward the lobe and draped forward | 78 + 78 + 69 cards |
+| F | §3 | Flip curls: lowest 30 % bent outward+up 6–12° in lobes of 3–4 cards (t³) | 231 cards |
+| F | §7 | Soft S-waves: grouped yaw ±4° on the lower part (t²) | 266 cards |
+| F | §5 | Open forehead: hanging/crossing front cards on his left swept back 15–25°; the near-horizontal sweep cards beside the part bent 22° back over the top | 32 + 17 cards |
+| F | §5b | His left side splayed tips pulled back down along the face | 59 cards |
+| F | §5d | Soft lock at his right temple: cards already falling down the temple lengthened to brow height and curved 10° down the temple | 17 cards |
+| F | §6 | Crown: stray tips 4–8° toward the scalp | 4 cards |
+| F | guard | Eye-zone enforcement (no vertex below z 1.715 in front of the face) + smoothed collision | 0 violations |
 | D-shading | `common.py` materials, `export_textures.py` | **Shading/texture**: no texture repaint; NS maps restored to 128-centred encoding; preview material: alpha clip 0.35, NS B → roughness; scalp-transferred normals regenerated from the deformed cap (validated to render identically to the shipped normals) | — |
 | E | `final_renders.py` | Gameplay-readability renders (1080p third-person perspective, head ≈ 45 px), strong side light, Mustafar light | — |
 
@@ -69,6 +86,14 @@ Net displacement of `HairPlanes_M` vs the original (un-mirrored chain): stage A 
 * **Per-vertex collision pushes** crumpled cards at the ear; replaced by the per-card smoothed push.
 * **Nearest-vertex signed distance** against the head: the user's head export had inconsistent normals → garbage
   distances and runaway pushes; replaced by consistent winding + triangle-accurate closest point.
+
+## Variant 4 iteration notes (4 rounds, `renders/F/F_vs_promo_big.jpg`)
+1. Round 1: jaw length and open forehead achieved, but ±10° waves and 10–24° flips blew his left side out
+   horizontally. 2. Round 2: waves halved; the "temple lock" step caught the game's crossing fringe and dropped it
+   over his left eye. 3. Round 3: lock restricted to cards already falling down his right temple, eye-zone guard
+   added. 4. Round 4: the near-horizontal sweep cards beside the part were bent back over the top, opening the
+   forehead corner as in the photo. Not achievable with the existing cards: the photo's thick, smooth curl masses
+   (the sides stay strand-like) and its lighter golden colour (textures untouched, preview material unchanged).
 
 ## Known remaining gaps vs. the film
 * Ears are covered on roughly the upper half to two thirds (stage D); Full coverage needs new cards
