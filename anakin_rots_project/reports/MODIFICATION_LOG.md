@@ -22,6 +22,9 @@ All geometry edits are scripted and reproducible: `scripts/stage_A_silhouette.py
   open forehead with one soft lock at his right temple, soft S-waves. No mirror (the photo's part is on his right,
   same as the game asset).
 
+* `output/variant_5_saved_promo/`: frozen copy of variant 4 (stage F) with `positions_F.npz`, saved at the user's
+  request as a fixed starting point for later work.
+
 **Variant 1 = stage D of the un-mirrored variant** (`MIRROR=0`: stages An → Bn → Cn → D). The mirrored
 variant (stages A → B → C, part on Anakin's left as in the film) was built first; the user reviewed the evidence
 (`reports/part_side_evidence.jpg`, `reports/variants_original_vs_unmirrored_vs_mirrored.jpg`) and chose to keep the
