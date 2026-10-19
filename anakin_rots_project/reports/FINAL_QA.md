@@ -60,24 +60,26 @@ Mustafar views, or the gameplay-distance view (`output/comparison/`). Roots are 
 
 
 ---
-# Variant 2 — `output/variant_2_coruscant_frame/` (stage E, mirrored chain)
-Built to match the user-supplied Coruscant front frame. Same checks (`reports/qa_geometry_E.json`):
+# Variant 2 — `output/variant_2_coruscant_frame/` (stage En, un-mirrored chain)
+Built to match the user-supplied Coruscant front frame with the part kept on the game's side (user decision; the mesh
+is **not** mirrored, so the frame's styling is applied with the sides swapped). Same checks (`reports/qa_geometry_En.json`):
 
 | Check | HairPlanes_M | hair_cap |
 |---|---|---|
 | Vertices / triangles | 9519 / 10432 | 704 / 1230 |
 | Non-finite / degenerate tris / unweighted verts | 0 / 0 / 0 | 0 / 0 / 0 |
 | Faces identical (vertex sets) / UVs identical | True / max diff 0.0 | True / max diff 0.0 |
-| Mirror | X mirrored, winding reversed, `FACIAL_LOD1_L_*`↔`_R_*` swapped (verified in the group list) | X mirrored |
+| Mirror / winding / vertex-group names | none / original / original | none; cap positions unchanged (0.0e+00 m) |
 | Round trip (fresh import of the FBX) | 9519 verts, max position diff 2.2e-08 m, 15 groups | 704 verts, 4 groups |
-| Skeleton in FBX | `Reference`, 247 bones | |
+| Skeleton in FBX / units | `Reference`, 247 bones / UnitScaleFactor 100, Y-up, +Z front | |
 
-* Hair-to-skin signed distance (mm) 1st/5th/50th pct: mirrored original -5.3 / -0.0 / 22.4 → variant 2 -4.2 / 1.5 / 23.8; vertices pushed deeper than the shipped clearance by > 1 mm: 4.
-* Card length ratio vs original: min 0.84, median 1.01, 95th pct 1.35, max 1.36 (cap 1.35).
-* Vertex displacement vs the mirrored original: mean 6.4 mm, 95th pct 25.4 mm, max 64.7 mm.
-* Visual: `comparison/E_vs_user_frame_big.jpg` (the supplied frame next to the front and three-quarter renders),
-  `comparison/original_vs_final.png`, `lighting_side_and_mustafar.png`, `gameplay_distance_zoom.png`.
-* Matches the frame: part on his left, wide front wave across the forehead to his right temple and down the cheek,
-  his left side pushed back over the ear, both ears covered, chin-length sides with outward-curling ends, flat crown.
-  Does not match: the frame's wave is one smooth thick lock; here it is a group of straight-hanging cards, so it reads
-  as a looser, stragglier lock at close range (fine at gameplay distance).
+* Hair-to-skin signed distance (mm) 1st/5th/50th pct: original -1.2 / 3.6 / 20.6 → variant 2 -0.5 / 4.2 / 22.8; vertices pushed deeper than the shipped clearance by > 1 mm: 2.
+* Card length ratio vs original: min 0.85, median 1.01, 95th pct 1.35, max 1.37 (cap 1.35).
+* Vertex displacement vs original: mean 6.5 mm, 95th pct 25.5 mm, max 74.9 mm.
+* Visual: `comparison/En_vs_user_frame_big.jpg` (the supplied frame, the frame flipped to the game's part side, and the
+  front / three-quarter renders), `comparison/original_vs_final.png`, `lighting_side_and_mustafar.png`,
+  `gameplay_distance_zoom.png`.
+* Matches the (flipped) frame: forehead exposed on the part side, wide front wave across the forehead to the opposite
+  temple and down the cheek, part side pushed back over the ear, both ears covered, chin-length sides with
+  outward-curling ends, flat crown. Does not match: the part is on the opposite side from the photo by the user's
+  decision, and the frame's wave is one smooth thick lock whereas here it is a group of straight-hanging cards.
