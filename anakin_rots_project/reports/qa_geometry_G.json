@@ -1,0 +1,170 @@
+{
+ "stage_blend": {
+  "hair_cap": {
+   "verts": 704,
+   "edges": 1932,
+   "faces": 1230,
+   "tris": 1230,
+   "nonfinite": 0,
+   "uv_layers": [
+    "UVChannel0"
+   ],
+   "materials": [
+    "M_HairCap"
+   ],
+   "vertex_groups": [
+    "Neck",
+    "Neck1",
+    "Head",
+    "HeadRoll"
+   ],
+   "has_custom_normals": true,
+   "bbox_min": [
+    -0.1029052734375,
+    1.568359375,
+    -0.0712890625
+   ],
+   "bbox_max": [
+    0.09539794921875,
+    1.828125,
+    0.147216796875
+   ],
+   "degenerate_tris": 0,
+   "duplicate_vertex_positions": 9,
+   "uv_min": [
+    0.0133056640625,
+    0.01123046875
+   ],
+   "uv_max": [
+    0.9931640625,
+    0.9793853759765625
+   ],
+   "uv_nonfinite": 0,
+   "weight_sum_min": 1.0,
+   "weight_sum_max": 1.0000000521540642,
+   "unweighted_verts": 0,
+   "matrix_world_is_identity": false,
+   "modifiers": [
+    [
+     "Reference",
+     "ARMATURE"
+    ]
+   ]
+  },
+  "HairPlanes_M": {
+   "verts": 9519,
+   "edges": 19491,
+   "faces": 10432,
+   "tris": 10432,
+   "nonfinite": 0,
+   "uv_layers": [
+    "UVChannel0"
+   ],
+   "materials": [
+    "M_HairPlanes"
+   ],
+   "vertex_groups": [
+    "Neck",
+    "Neck1",
+    "Head",
+    "FACIAL_LOD1_L_ForeheadOut",
+    "FACIAL_LOD1_R_ForeheadOut",
+    "FACIAL_LOD1_L_CheekOuter",
+    "FACIAL_LOD1_R_CheekOuter",
+    "FACIAL_LOD1_L_CheekLower",
+    "FACIAL_LOD1_R_CheekLower",
+    "FACIAL_LOD1_L_Ear",
+    "FACIAL_LOD1_R_Ear",
+    "FACIAL_LOD1_C_Jaw",
+    "FACIAL_LOD1_L_Masseter",
+    "FACIAL_LOD1_R_Masseter",
+    "HeadRoll"
+   ],
+   "has_custom_normals": true,
+   "bbox_min": [
+    -0.13141383230686188,
+    1.5510865449905396,
+    -0.09074421972036362
+   ],
+   "bbox_max": [
+    0.11093998700380325,
+    1.8388671875,
+    0.14906565845012665
+   ],
+   "degenerate_tris": 0,
+   "duplicate_vertex_positions": 3,
+   "uv_min": [
+    0.0,
+    0.0
+   ],
+   "uv_max": [
+    1.0,
+    1.0
+   ],
+   "uv_nonfinite": 0,
+   "weight_sum_min": 1.0,
+   "weight_sum_max": 1.0000000521540642,
+   "unweighted_verts": 0,
+   "matrix_world_is_identity": false,
+   "modifiers": [
+    [
+     "Reference",
+     "ARMATURE"
+    ]
+   ]
+  }
+ },
+ "vs_original": {
+  "HairPlanes_M": {
+   "face_count_equal": true,
+   "face_vertex_sets_equal": true,
+   "uv_loop_count_equal": true,
+   "uv_max_abs_diff_sorted": 0.0
+  },
+  "hair_cap": {
+   "face_count_equal": true,
+   "face_vertex_sets_equal": true,
+   "uv_loop_count_equal": true,
+   "uv_max_abs_diff_sorted": 0.0
+  }
+ },
+ "fbx_roundtrip": {
+  "HairPlanes_M": {
+   "verts": 9519,
+   "faces": 10432,
+   "max_abs_position_diff_vs_stage": 2.2351741790771484e-08,
+   "vertex_groups": 15,
+   "uv_layers": [
+    "UVChannel0"
+   ],
+   "has_custom_normals": true,
+   "armature_modifier": [
+    "Reference"
+   ]
+  },
+  "hair_cap": {
+   "verts": 704,
+   "faces": 1230,
+   "max_abs_position_diff_vs_stage": 2.2351741790771484e-08,
+   "vertex_groups": 4,
+   "uv_layers": [
+    "UVChannel0"
+   ],
+   "has_custom_normals": true,
+   "armature_modifier": [
+    "Reference"
+   ]
+  },
+  "armature": {
+   "name": "Reference",
+   "bones": 247,
+   "has_Head": true
+  },
+  "objects": [
+   "HairPlanes_M",
+   "Reference",
+   "hair_anakin_01_mesh_lod0",
+   "hair_cap"
+  ]
+ }
+}

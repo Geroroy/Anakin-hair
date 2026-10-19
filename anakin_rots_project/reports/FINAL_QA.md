@@ -110,3 +110,29 @@ Built to match `references/ref_target_promo_front.jpg`. Checks from `reports/qa_
   Does not match: the photo's thick smooth curl masses (the sides remain strand-like card groups), its lighter
   golden colour (textures and preview material untouched), and the ears are hidden rather than fully covered in
   profile.
+
+
+---
+# Variant 6 — `output/variant_6_sculpt/` (stage G, un-mirrored, from variant 3 / stage En)
+Built to match `references/ref_target_sculpt_front.jpg` (head sculpt). Checks from `reports/qa_geometry_G.json`:
+
+| Check | HairPlanes_M | hair_cap |
+|---|---|---|
+| Vertices / triangles | 9519 / 10432 | 704 / 1230 |
+| Non-finite / degenerate tris / unweighted verts | 0 / 0 / 0 | 0 / 0 / 0 |
+| Faces identical (vertex sets) / UVs identical | True / max diff 0.0 | True / max diff 0.0 |
+| Mirror / winding / group names | none / original / original | none; cap positions unchanged (0.0e+00 m) |
+| Round trip (fresh import of the FBX) | 9519 verts, max position diff 2.2e-08 m, 15 groups | 704 verts, 4 groups |
+| Skeleton in FBX / units | `Reference`, 247 bones / UnitScaleFactor 100, Y-up, +Z front | |
+
+* Side/back tip height (|az| > 45°, el < 30°): median 1.626 m, 10th pct 1.566 (target chin / upper neck 1.56–1.58; chin 1.576).
+* Hair-to-skin signed distance (mm) 1st/5th/50th pct: original -1.2 / 3.6 / 20.6 → variant 6 -0.5 / 4.0 / 19.0; vertices pushed deeper than the shipped clearance by > 1 mm: 12.
+* Card length ratio vs original: min 0.78, median 1.01, 95th pct 1.24, max 1.35 (scale steps clamped 0.80–1.35; the small excursions come from bends changing the root-to-tip chord).
+* Eye zone: 0 cards with vertices below z 1.715 in front of the eyes.
+* Vertex displacement vs original: mean 9.2 mm, 95th pct 33.4 mm, max 83.3 mm.
+* Visual: `comparison/G_vs_sculpt.jpg` (sculpt beside front, three-quarter, left, right), `comparison/G_vs_sculpt_front.jpg`,
+  `original_vs_final.png`, `lighting_side_and_mustafar.png`, `gameplay_distance_zoom.png`.
+* Matches the sculpt: part on his right; one broad wave from the part across the forehead to his left brow/temple that
+  turns back; his right forehead open; sideburns gone and his right ear exposed; long S-wave locks behind the ears to
+  chin level; widest at the jaw; sleeker top. Does not match: the sculpt's carved continuous locks (the sides stay
+  strand groups, wispier at the ends); his left ear is partly covered by the returning wave rather than fully clear.

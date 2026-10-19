@@ -25,6 +25,11 @@ All geometry edits are scripted and reproducible: `scripts/stage_A_silhouette.py
 * `output/variant_5_saved_promo/`: frozen copy of variant 4 (stage F) with `positions_F.npz`, saved at the user's
   request as a fixed starting point for later work.
 
+* `output/variant_6_sculpt/`: stage G (`stage_G_sculpt.py`, SRC=En = variant 3), built to match the head sculpt
+  `references/ref_target_sculpt_front.jpg`: part on his right, one broad front wave to his left brow/temple turning
+  back, right forehead open, ears exposed (sideburns tucked), long S-wave locks behind the ears to chin level, widest
+  at the jaw, sleek top. No mirror.
+
 **Variant 1 = stage D of the un-mirrored variant** (`MIRROR=0`: stages An → Bn → Cn → D). The mirrored
 variant (stages A → B → C, part on Anakin's left as in the film) was built first; the user reviewed the evidence
 (`reports/part_side_evidence.jpg`, `reports/variants_original_vs_unmirrored_vs_mirrored.jpg`) and chose to keep the
@@ -74,6 +79,15 @@ authored wave shape and its texture mapping.
 | F | §5d | Soft lock at his right temple: cards already falling down the temple lengthened to brow height and curved 10° down the temple | 17 cards |
 | F | §6 | Crown: stray tips 4–8° toward the scalp | 4 cards |
 | F | guard | Eye-zone enforcement (no vertex below z 1.715 in front of the face) + smoothed collision | 0 violations |
+| G (variant 6) | `stage_G_sculpt.py` §1 | Ears exposed: cards above/in front of the ears restored to original length and bent 15–25° backward; cards crossing the measured ear volume swept back | 34 + 80 cards |
+| G | §2 | Sides/back lengthened toward z = 1.57 (chin / upper neck), back to 1.56 | 225 cards, k ≤ 1.15 |
+| G | §3 | Front wave: sweep-side cards cut to brow height, guided to his left temple (0.085, −0.075, 1.705) and turned back; hanging cards on his right forehead swept back 18° | 23 + 9 cards |
+| G | §3b | Sideburns (rooted in front of the ears, below the temple): shortened to 0.80 and tucked back 14° | 84 cards |
+| G | §4 | Silhouette: temples ≤ 18 mm from the skin, jaw level ≥ 25 mm (+6 mm on his left), lower tips > 36 mm bent in; ends flared 4–8° (t³) | 135 + 130 + 214 cards |
+| G | §5 | Waves: grouped yaw ±8° (t^1.8) in lobes of 3–4 cards | 266 cards |
+| G | §6 | Back layers ±6 % low-frequency modulation | 71 cards |
+| G | §7 | Top sleek: tips > 17 mm off the scalp (el > 38°) tilted 5–10° toward it | 45 cards |
+| G | guard | Eye-zone enforcement + smoothed collision | 1 bend step, 0 violations |
 | D-shading | `common.py` materials, `export_textures.py` | **Shading/texture**: no texture repaint; NS maps restored to 128-centred encoding; preview material: alpha clip 0.35, NS B → roughness; scalp-transferred normals regenerated from the deformed cap (validated to render identically to the shipped normals) | — |
 | E | `final_renders.py` | Gameplay-readability renders (1080p third-person perspective, head ≈ 45 px), strong side light, Mustafar light | — |
 
@@ -97,6 +111,16 @@ Net displacement of `HairPlanes_M` vs the original (un-mirrored chain): stage A 
    added. 4. Round 4: the near-horizontal sweep cards beside the part were bent back over the top, opening the
    forehead corner as in the photo. Not achievable with the existing cards: the photo's thick, smooth curl masses
    (the sides stay strand-like) and its lighter golden colour (textures untouched, preview material unchanged).
+
+## Variant 6 iteration notes (5 rounds, `renders/G/G_vs_sculpt.jpg`)
+1. The first "ear box" was far larger than the ear (the original asset hit it 172 times); its enforcement loop
+   mangled cards. Replaced by the ear volume measured on HEAD_REF (right ear y −0.049…−0.019, z 1.651…1.712) and
+   an explicit undo of variant 3's forward ear drape. The shipped asset itself has 33 sideburn cards rooted inside
+   that volume, so the metric is informational only.
+2. The crossing front lock drooped to the cheek; cut to brow height, guided to the temple and turned back.
+3. Sideburn cards (absent on the sculpt) shortened and tucked; sides narrowed (jaw fullness 25 mm, flare 4–8°).
+4. Top sleeked (17 mm threshold). Not achievable with the cards: the sculpt's carved, continuous locks read as
+   strand groups; the lower ends stay wispier than the sculpt's solid mass.
 
 ## Known remaining gaps vs. the film
 * Ears are covered on roughly the upper half to two thirds (stage D); Full coverage needs new cards
