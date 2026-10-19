@@ -1,0 +1,7 @@
+# full-frame film stills downloaded for reference study (copyrighted; cropped head references are kept)
+anakin_rots_project/references/raw/
+anakin_rots_project/references/contact_sheet_candidates*.jpg
+anakin_rots_project/references/contact_sheet_selected.jpg
+*.blend1
+__pycache__/
+anakin_rots_project/renders/_log_*.txt

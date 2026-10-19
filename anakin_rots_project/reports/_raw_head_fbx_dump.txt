@@ -1,0 +1,219 @@
+FBX version 7400
+FBXHeaderExtension
+  FBXHeaderVersion 1003
+  FBXVersion 7400
+  EncryptionType 0
+  CreationTimeStamp
+    Version 1000
+    Year 2026
+    Month 10
+    Day 19
+    Hour 19
+    Minute 41
+    Second 6
+    Millisecond 207
+  Creator 'Blender (stable FBX IO) - 5.2.2 LTS - 5.15.0'
+  SceneInfo 'GlobalInfo\x00\x01SceneInfo' 'UserData'
+    Type 'UserData'
+    Version 100
+    MetaData
+      Version 100
+      Title ''
+      Subject ''
+      Author ''
+      Keywords ''
+      Revision ''
+      Comment ''
+    Properties70
+      P 'DocumentUrl' 'KString' 'Url' '' '/foobar.fbx'
+      P 'SrcDocumentUrl' 'KString' 'Url' '' '/foobar.fbx'
+      P 'Original' 'Compound' '' ''
+      P 'Original|ApplicationVendor' 'KString' '' '' 'Blender Foundation'
+      P 'Original|ApplicationName' 'KString' '' '' 'Blender (stable FBX IO)'
+      P 'Original|ApplicationVersion' 'KString' '' '' '5.2.2 LTS'
+      P 'Original|DateTime_GMT' 'DateTime' '' '' '01/01/1970 00:00:00.000'
+      P 'Original|FileName' 'KString' '' '' '/foobar.fbx'
+      P 'LastSaved' 'Compound' '' ''
+      P 'LastSaved|ApplicationVendor' 'KString' '' '' 'Blender Foundation'
+      P 'LastSaved|ApplicationName' 'KString' '' '' 'Blender (stable FBX IO)'
+      P 'LastSaved|ApplicationVersion' 'KString' '' '' '5.2.2 LTS'
+      P 'LastSaved|DateTime_GMT' 'DateTime' '' '' '01/01/1970 00:00:00.000'
+      P 'Original|ApplicationNativeFile' 'KString' '' '' 'D:\\Minhofold\\Blender\\anakin rots hair version 3.0.blend'
+GlobalSettings
+  Version 1000
+  Properties70
+    P 'UpAxis' 'int' 'Integer' '' 1
+    P 'UpAxisSign' 'int' 'Integer' '' 1
+    P 'FrontAxis' 'int' 'Integer' '' 2
+    P 'FrontAxisSign' 'int' 'Integer' '' 1
+    P 'CoordAxis' 'int' 'Integer' '' 0
+    P 'CoordAxisSign' 'int' 'Integer' '' 1
+    P 'OriginalUpAxis' 'int' 'Integer' '' -1
+    P 'OriginalUpAxisSign' 'int' 'Integer' '' 1
+    P 'UnitScaleFactor' 'double' 'Number' '' 1.0
+    P 'OriginalUnitScaleFactor' 'double' 'Number' '' 1.0
+    P 'AmbientColor' 'ColorRGB' 'Color' '' 0.0 0.0 0.0
+    P 'DefaultCamera' 'KString' '' '' 'Producer Perspective'
+    P 'TimeMode' 'enum' '' '' 10
+    P 'TimeSpanStart' 'KTime' 'Time' '' 0
+    P 'TimeSpanStop' 'KTime' 'Time' '' 46186158000
+    P 'CustomFrameRate' 'double' 'Number' '' 25.0
+Definitions
+  Version 100
+  Count 4
+  ObjectType 'GlobalSettings'
+    Count 1
+  ObjectType 'Geometry'
+    Count 1
+    PropertyTemplate 'FbxMesh'
+      Properties70
+        P 'Color' 'ColorRGB' 'Color' '' 0.8 0.8 0.8
+        P 'BBoxMin' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'BBoxMax' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'Primary Visibility' 'bool' '' '' 1
+        P 'Casts Shadows' 'bool' '' '' 1
+        P 'Receive Shadows' 'bool' '' '' 1
+  ObjectType 'Model'
+    Count 1
+    PropertyTemplate 'FbxNode'
+      Properties70
+        P 'QuaternionInterpolate' 'enum' '' '' 0
+        P 'RotationOffset' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'RotationPivot' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'ScalingOffset' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'ScalingPivot' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'TranslationActive' 'bool' '' '' 0
+        P 'TranslationMin' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'TranslationMax' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'TranslationMinX' 'bool' '' '' 0
+        P 'TranslationMinY' 'bool' '' '' 0
+        P 'TranslationMinZ' 'bool' '' '' 0
+        P 'TranslationMaxX' 'bool' '' '' 0
+        P 'TranslationMaxY' 'bool' '' '' 0
+        P 'TranslationMaxZ' 'bool' '' '' 0
+        P 'RotationOrder' 'enum' '' '' 0
+        P 'RotationSpaceForLimitOnly' 'bool' '' '' 0
+        P 'RotationStiffnessX' 'double' 'Number' '' 0.0
+        P 'RotationStiffnessY' 'double' 'Number' '' 0.0
+        P 'RotationStiffnessZ' 'double' 'Number' '' 0.0
+        P 'AxisLen' 'double' 'Number' '' 10.0
+        P 'PreRotation' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'PostRotation' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'RotationActive' 'bool' '' '' 0
+        P 'RotationMin' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'RotationMax' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'RotationMinX' 'bool' '' '' 0
+        P 'RotationMinY' 'bool' '' '' 0
+        P 'RotationMinZ' 'bool' '' '' 0
+        P 'RotationMaxX' 'bool' '' '' 0
+        P 'RotationMaxY' 'bool' '' '' 0
+        P 'RotationMaxZ' 'bool' '' '' 0
+        P 'InheritType' 'enum' '' '' 0
+        P 'ScalingActive' 'bool' '' '' 0
+        P 'ScalingMin' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'ScalingMax' 'Vector3D' 'Vector' '' 1.0 1.0 1.0
+        P 'ScalingMinX' 'bool' '' '' 0
+        P 'ScalingMinY' 'bool' '' '' 0
+        P 'ScalingMinZ' 'bool' '' '' 0
+        P 'ScalingMaxX' 'bool' '' '' 0
+        P 'ScalingMaxY' 'bool' '' '' 0
+        P 'ScalingMaxZ' 'bool' '' '' 0
+        P 'GeometricTranslation' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'GeometricRotation' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'GeometricScaling' 'Vector3D' 'Vector' '' 1.0 1.0 1.0
+        P 'MinDampRangeX' 'double' 'Number' '' 0.0
+        P 'MinDampRangeY' 'double' 'Number' '' 0.0
+        P 'MinDampRangeZ' 'double' 'Number' '' 0.0
+        P 'MaxDampRangeX' 'double' 'Number' '' 0.0
+        P 'MaxDampRangeY' 'double' 'Number' '' 0.0
+        P 'MaxDampRangeZ' 'double' 'Number' '' 0.0
+        P 'MinDampStrengthX' 'double' 'Number' '' 0.0
+        P 'MinDampStrengthY' 'double' 'Number' '' 0.0
+        P 'MinDampStrengthZ' 'double' 'Number' '' 0.0
+        P 'MaxDampStrengthX' 'double' 'Number' '' 0.0
+        P 'MaxDampStrengthY' 'double' 'Number' '' 0.0
+        P 'MaxDampStrengthZ' 'double' 'Number' '' 0.0
+        P 'PreferedAngleX' 'double' 'Number' '' 0.0
+        P 'PreferedAngleY' 'double' 'Number' '' 0.0
+        P 'PreferedAngleZ' 'double' 'Number' '' 0.0
+        P 'LookAtProperty' 'object' '' ''
+        P 'UpVectorProperty' 'object' '' ''
+        P 'Show' 'bool' '' '' 1
+        P 'NegativePercentShapeSupport' 'bool' '' '' 1
+        P 'DefaultAttributeIndex' 'int' 'Integer' '' -1
+        P 'Freeze' 'bool' '' '' 0
+        P 'LODBox' 'bool' '' '' 0
+        P 'Lcl Translation' 'Lcl Translation' '' 'A' 0.0 0.0 0.0
+        P 'Lcl Rotation' 'Lcl Rotation' '' 'A' 0.0 0.0 0.0
+        P 'Lcl Scaling' 'Lcl Scaling' '' 'A' 1.0 1.0 1.0
+        P 'Visibility' 'Visibility' '' 'A' 1.0
+        P 'Visibility Inheritance' 'Visibility Inheritance' '' '' 1
+  ObjectType 'Material'
+    Count 1
+    PropertyTemplate 'FbxSurfacePhong'
+      Properties70
+        P 'ShadingModel' 'KString' '' '' 'Phong'
+        P 'MultiLayer' 'bool' '' '' 0
+        P 'EmissiveColor' 'Color' '' 'A' 0.0 0.0 0.0
+        P 'EmissiveFactor' 'Number' '' 'A' 1.0
+        P 'AmbientColor' 'Color' '' 'A' 0.2 0.2 0.2
+        P 'AmbientFactor' 'Number' '' 'A' 1.0
+        P 'DiffuseColor' 'Color' '' 'A' 0.8 0.8 0.8
+        P 'DiffuseFactor' 'Number' '' 'A' 1.0
+        P 'TransparentColor' 'Color' '' 'A' 0.0 0.0 0.0
+        P 'TransparencyFactor' 'Number' '' 'A' 0.0
+        P 'Opacity' 'Number' '' 'A' 1.0
+        P 'NormalMap' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'Bump' 'Vector3D' 'Vector' '' 0.0 0.0 0.0
+        P 'BumpFactor' 'double' 'Number' '' 1.0
+        P 'DisplacementColor' 'ColorRGB' 'Color' '' 0.0 0.0 0.0
+        P 'DisplacementFactor' 'double' 'Number' '' 1.0
+        P 'VectorDisplacementColor' 'ColorRGB' 'Color' '' 0.0 0.0 0.0
+        P 'VectorDisplacementFactor' 'double' 'Number' '' 1.0
+        P 'SpecularColor' 'Color' '' 'A' 0.2 0.2 0.2
+        P 'SpecularFactor' 'Number' '' 'A' 1.0
+        P 'Shininess' 'Number' '' 'A' 20.0
+        P 'ShininessExponent' 'Number' '' 'A' 20.0
+        P 'ReflectionColor' 'Color' '' 'A' 0.0 0.0 0.0
+        P 'ReflectionFactor' 'Number' '' 'A' 1.0
+
+=== OBJECTS ===
+Geometry ['887135486', "'mat_head.001\\x00\\x01Geometry'", "'Mesh'"]
+      GeometryVersion ['124']
+      Vertices 12435
+      PolygonVertexIndex 24147
+      Edges 12196
+      LayerElementNormal [0] {'Version': '101', 'Name': "''", 'MappingInformationType': "'ByPolygonVertex'", 'ReferenceInformationType': "'IndexToDirect'", 'Normals': '[12441 items] [0.00033923983573913574, -0.45642971992492676, 0.889759361743927, 0.00038810400292277336, 0.8936439752578735, 0.448776513338089]', 'NormalsIndex': '[24147 items] [1708, 431, 69, 32, 1469, 2460]'}
+      LayerElementUV [0] {'Version': '101', 'Name': "'UVChannel0'", 'MappingInformationType': "'ByPolygonVertex'", 'ReferenceInformationType': "'IndexToDirect'", 'UV': '[8290 items] [0.0020999908447265625, 0.0029296875, 0.0269317626953125, 0.0029296875, 0.05572509765625, 0.0029296875]', 'UVIndex': '[24147 items] [3299, 3300, 3301, 3211, 3096, 3114]'}
+      LayerElementMaterial [0] {'Version': '101', 'Name': "''", 'MappingInformationType': "'AllSame'", 'ReferenceInformationType': "'IndexToDirect'", 'Materials': '[1 items] [0]'}
+      Layer ['0']
+Model ['180918714', "'mat_head:heads_anakin_01_mesh_lod.001\\x00\\x01Model'", "'Mesh'"]
+      Version ['232']
+     P ["'Lcl Translation'", "'Lcl Translation'", "''", "'A'", '35.194950103759766', '6.485816811618861e-06', '-4.959713919561182e-07']
+     P ["'Lcl Rotation'", "'Lcl Rotation'", "''", "'A'", '-4.3257111045250854e-06', '-9.706282597239736e-20', '3.664019825836538e-27']
+     P ["'Lcl Scaling'", "'Lcl Scaling'", "''", "'A'", '100.0', '100.0', '100.0']
+     P ["'DefaultAttributeIndex'", "'int'", "'Integer'", "''", '0']
+     P ["'InheritType'", "'enum'", "''", "''", '1']
+      MultiLayer ['0']
+      MultiTake ['0']
+      Shading ['True']
+      Culling ["'CullingOff'"]
+Material ['871378647', "'Material.003\\x00\\x01Material'", "''"]
+      Version ['102']
+      ShadingModel ["'Phong'"]
+      MultiLayer ['0']
+     P ["'DiffuseColor'", "'Color'", "''", "'A'", '0.800000011920929', '0.800000011920929', '0.800000011920929']
+     P ["'AmbientColor'", "'Color'", "''", "'A'", '0.05087608844041824', '0.05087608844041824', '0.05087608844041824']
+     P ["'AmbientFactor'", "'Number'", "''", "'A'", '0.0']
+     P ["'BumpFactor'", "'double'", "'Number'", "''", '0.0']
+     P ["'SpecularColor'", "'Color'", "''", "'A'", '0.800000011920929', '0.800000011920929', '0.800000011920929']
+     P ["'SpecularFactor'", "'Number'", "''", "'A'", '0.25']
+     P ["'Shininess'", "'Number'", "''", "'A'", '35.99999928474426']
+     P ["'ShininessExponent'", "'Number'", "''", "'A'", '35.99999928474426']
+     P ["'ReflectionColor'", "'Color'", "''", "'A'", '0.800000011920929', '0.800000011920929', '0.800000011920929']
+     P ["'ReflectionFactor'", "'Number'", "''", "'A'", '0.0']
+
+=== CONNECTIONS ===
+C ['OO', 180918714, 0]
+C ['OO', 887135486, 180918714]
+C ['OO', 871378647, 180918714]

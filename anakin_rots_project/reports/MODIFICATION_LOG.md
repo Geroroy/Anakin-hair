@@ -1,0 +1,60 @@
+# Modification Log — ROTS Anakin hair reconstruction
+
+All geometry edits are scripted and reproducible: `scripts/stage_A_silhouette.py` → `stage_B_locks.py` →
+`stage_C_fine.py` → `stage_D_film_push.py` (NumPy, operate on `working/geometry_original.npz`) and
+`scripts/apply_stage.py` (Blender, applies the positions, regenerates scalp-transferred normals, saves
+`working/<stage>.blend`, renders `renders/<stage>/`).
+
+**Final deliverable = stage D of the un-mirrored variant** (`MIRROR=0`: stages An → Bn → Cn → D). The mirrored
+variant (stages A → B → C, part on Anakin's left as in the film) was built first; the user reviewed the evidence
+(`reports/part_side_evidence.jpg`, `reports/variants_original_vs_unmirrored_vs_mirrored.jpg`) and chose to keep the
+game's original part side, and asked for a stronger push toward the film look (stage D). `working/C.blend` keeps the
+mirrored variant for reference; it is not exported.
+Only vertex *positions* and *normals* change; vertex order, topology, UVs and skin weights are never touched.
+Every operation is a per-card transform about the card's root (uniform scale, bend about an axis through the root with
+angle ∝ tᵖ, yaw about the vertical through the root) or a smoothed per-card collision push, so each card keeps its
+authored wave shape and its texture mapping.
+
+| Stage | File | Operation | Parameters / affected cards |
+|---|---|---|---|
+| 00 | `01_inspect_original.py`, `02_render_original.py`, `03_card_table_and_rerender.py` | Import, inspect, classify 463 cards into regions, baseline renders | — |
+| 00 | `05_fix_head_normals.py` | **Head reference only**: recalculated face winding/normals of the user's head re-export (its exported vertex normals were inconsistent — scalp normals averaged z = 0.08) | head mesh is never exported |
+| A | `stage_A_silhouette.py` §1 | Mirror X (`MIRROR=1` only; **not used in the final**) | mirrored variant only |
+| A | §2 | Per-card length scale about the root | ±6 % noise everywhere; sides −7 %; back-sides −5 %; centre back +3 %; fringe −10 % (range 0.84–1.08) |
+| A | §3 | Bend lower side/back cards toward the head when the tip is further than 28 mm (sides) / 36 mm (back) from the skin | 111 cards, ≤ 25°, t^1.2 |
+| A | §4 | Drape cards rooted behind/above the ears forward | 21 cards, 7° (his left) – 10° (his right), t^1.5 |
+| A | §5 | Crown cards tilted toward the scalp when tip > 30 mm off the skin | 40 cards, ≤ 6°, t^1.5 |
+| A | §7 | Smoothed collision: no vertex closer to the skin than in the shipped asset, 4 mm elsewhere | 1 654 vertex moves |
+| B | `stage_B_locks.py` §1 | Layered hem: lowest 40 % of back/nape cards flicked outward (60 %) or tucked (40 %) | 84 cards, 6–16°, t^2.5 |
+| B | §2 | Jaw-level S-waves: alternating yaw ±7° (t²) + outward tip flick 5–11° (t³) | 141 cards |
+| B | §3 | Asymmetry: his left side swept back ≤ 6°, his right side forward ≤ 4° and +2 % length | 105 cards |
+| C | `stage_C_fine.py` §1 | Ear coverage: cards rooted above the ears lengthened so tips reach the lobe level, draped 7–9° forward | 31 cards, scale ≤ 1.28 |
+| C | §2 | Back hem layers: low-frequency ±7 % length modulation (3–4 adjacent cards per layer) | 93 cards |
+| C | §3 | Behind-ear waves: ±5° yaw on the tip third | 141 cards |
+| C | §4 | Loose strands left of the part tipped 5° forward onto the forehead | 14 cards |
+| D | `stage_D_film_push.py` §1 | Front sweep: hanging front cards bent 6–16° back (centre/part side only) and yawed 8° along the sweep (towards his left) → forehead/hairline exposed as in the Utapau/Palpatine frames | 42 cards |
+| D | §2 | Face-framing S-waves: grouped yaw ±11° (lobes of 3–4 cards) + tip flick 3–9° | 151 cards |
+| D | §3 | Fuller behind the ears: lower halves lifted 5–12° off the skull | 29 cards |
+| D | §4 | Ear coverage: cards above the ears lengthened (≤ ×1.35) to lobe level and draped 12° forward | 38 cards |
+| D | §5 | Temple locks tipped 6° forward/down around the ears | 66 cards |
+| D-shading | `common.py` materials, `export_textures.py` | **Shading/texture**: no texture repaint; NS maps restored to 128-centred encoding; preview material: alpha clip 0.35, NS B → roughness; scalp-transferred normals regenerated from the deformed cap (validated to render identically to the shipped normals) | — |
+| E | `final_renders.py` | Gameplay-readability renders (1080p third-person perspective, head ≈ 45 px), strong side light, Mustafar light | — |
+
+Net displacement of `HairPlanes_M` vs the original (un-mirrored chain): stage A mean 3.0 mm / max 3.0 cm, B +1.0 mm, C +0.9 mm / max 3.3 cm, D +2.8 mm / max 6.2 cm (the lengthened ear cards and the swept front). `hair_cap`: **unchanged** in the final.
+
+## Things tried and rejected (visible in the iteration history)
+* **Mirroring the asset** to put the part on his left: evidence-based but rejected by the user (kept the game's side).
+* **Per-vertex radial "slimming" field** (first stage A attempt): crushed cards into flat vertical strips at the back —
+  replaced by per-card bends toward the skin.
+* **Yawing temple cards 35° over the ears** and a **fringe yaw**: produced splayed, spiky locks at the temples and a lock
+  swinging away from the face. Replaced by small forward drapes + lengthening; the fringe keeps the (mirrored) original
+  lock over his right brow, shortened 10 % so it ends at the brow instead of the eye as in the film.
+* **Per-vertex collision pushes** crumpled cards at the ear; replaced by the per-card smoothed push.
+* **Nearest-vertex signed distance** against the head: the user's head export had inconsistent normals → garbage
+  distances and runaway pushes; replaced by consistent winding + triangle-accurate closest point.
+
+## Known remaining gaps vs. the film
+* Ears are covered on roughly the upper half to two thirds (stage D); Full coverage needs new cards
+  (the asset has none in front of the ears), which was ruled out to keep the triangle count and topology intact.
+* Back layering is suggested by length modulation and tip flicks; the film's rear curls are looser than what the
+  existing straight-hanging cards can express without re-authoring the card texture mapping.
