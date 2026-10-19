@@ -30,6 +30,12 @@ All geometry edits are scripted and reproducible: `scripts/stage_A_silhouette.py
   back, right forehead open, ears exposed (sideburns tucked), long S-wave locks behind the ears to chin level, widest
   at the jaw, sleek top. No mirror.
 
+* `output/variant_7_user_v6/`: stage H (`import_user_fbx.py` → `stage_H_user_import.py`), a transplant of the user's
+  hand-edited `input/user_edit_v6.fbx` (Blender 5.2 export, meshes only, no skeleton/weights). Topology, vertex order
+  and UVs were verified identical to the original, so the user's vertex positions are taken as-is and the asset's
+  skeleton, skin weights and UVs carry over unchanged; hair normals re-transferred from the scalp; cap unchanged.
+  The geometry is closest to variant 4/5 (stage F: mean 2.7 mm, max 24 mm apart).
+
 **Variant 1 = stage D of the un-mirrored variant** (`MIRROR=0`: stages An → Bn → Cn → D). The mirrored
 variant (stages A → B → C, part on Anakin's left as in the film) was built first; the user reviewed the evidence
 (`reports/part_side_evidence.jpg`, `reports/variants_original_vs_unmirrored_vs_mirrored.jpg`) and chose to keep the

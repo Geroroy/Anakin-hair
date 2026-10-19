@@ -136,3 +136,22 @@ Built to match `references/ref_target_sculpt_front.jpg` (head sculpt). Checks fr
   turns back; his right forehead open; sideburns gone and his right ear exposed; long S-wave locks behind the ears to
   chin level; widest at the jaw; sleeker top. Does not match: the sculpt's carved continuous locks (the sides stay
   strand groups, wispier at the ends); his left ear is partly covered by the returning wave rather than fully clear.
+
+
+---
+# Variant 7 — `output/variant_7_user_v6/` (stage H, transplant of the user's `input/user_edit_v6.fbx`)
+User-edited positions applied as-is to the game asset. Checks from `reports/qa_geometry_H.json`:
+
+| Check | HairPlanes_M | hair_cap |
+|---|---|---|
+| Vertices / triangles | 9519 / 10432 | 704 / 1230 |
+| Non-finite / degenerate tris / unweighted verts | 0 / 0 / 0 | 0 / 0 / 0 |
+| Faces identical (vertex sets) / UVs identical | True / max diff 0.0 | True / max diff 0.0 |
+| Mirror / winding / group names | none / original / original | none; cap positions unchanged (0.0e+00 m) |
+| Round trip (fresh import of the FBX) | 9519 verts, max position diff 2.2e-08 m, 15 groups | 704 verts, 4 groups |
+| Skeleton in FBX | `Reference`, 247 bones | |
+
+* Hair-to-skin signed distance (mm) 1st/5th/50th pct: original -1.2 / 3.6 / 20.6 → variant 7 -0.4 / 4.0 / 21.8; vertices more than 1 mm inside the skin: 74 (original 101).
+* Vertex displacement vs original: mean 10.7 mm, 95th pct 38.3 mm, max 107.5 mm. Vs stage F (variant 4/5): mean 2.7 mm, max 23.9 mm.
+* No automatic fixes (collision, eye zone, length clamps) were applied: the shape is exactly the user's edit.
+* Visual: `comparison/original_vs_final.png`, `lighting_side_and_mustafar.png`, `gameplay_distance_zoom.png`.
