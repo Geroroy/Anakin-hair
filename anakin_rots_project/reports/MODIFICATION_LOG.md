@@ -5,7 +5,15 @@ All geometry edits are scripted and reproducible: `scripts/stage_A_silhouette.py
 `scripts/apply_stage.py` (Blender, applies the positions, regenerates scalp-transferred normals, saves
 `working/<stage>.blend`, renders `renders/<stage>/`).
 
-**Final deliverable = stage D of the un-mirrored variant** (`MIRROR=0`: stages An → Bn → Cn → D). The mirrored
+**Two deliverables** (both in `output/`):
+* `output/variant_1_game_part_side/` (= `output/anakin_rots_hair_final.*`): stage D of the **un-mirrored** chain
+  (An → Bn → Cn → D). Part on Anakin's right as the game shipped; film-style restyle.
+* `output/variant_2_coruscant_frame/`: stage E of the **mirrored** chain (A → B → C → D2 → E), built after the user
+  supplied a Coruscant front frame (`references/ref_coruscant_front_user.jpg`) and asked for a copy that matches it:
+  part on his left, wide front wave sweeping across the forehead to his right temple, his left side pushed back over
+  the ear, chin-length sides curling outward, flat crown.
+
+**Variant 1 = stage D of the un-mirrored variant** (`MIRROR=0`: stages An → Bn → Cn → D). The mirrored
 variant (stages A → B → C, part on Anakin's left as in the film) was built first; the user reviewed the evidence
 (`reports/part_side_evidence.jpg`, `reports/variants_original_vs_unmirrored_vs_mirrored.jpg`) and chose to keep the
 game's original part side, and asked for a stronger push toward the film look (stage D). `working/C.blend` keeps the
@@ -37,13 +45,20 @@ authored wave shape and its texture mapping.
 | D | §3 | Fuller behind the ears: lower halves lifted 5–12° off the skull | 29 cards |
 | D | §4 | Ear coverage: cards above the ears lengthened (≤ ×1.35) to lobe level and draped 12° forward | 38 cards |
 | D | §5 | Temple locks tipped 6° forward/down around the ears | 66 cards |
+| E (variant 2 only) | `stage_E_variant2.py` §1 | Sides lengthened up to +12 % (jaw/chin length as in the frame) | 187 cards |
+| E | §2 | Front wave right of the part yawed 22° across the forehead toward his right temple, lifted to brow level | 36 cards |
+| E | §2b | Front left of the part pushed back/up 10–26° and yawed 12° toward his left ear | 17 cards |
+| E | §3 | His left side swept back 6°, ends flicked outward 8–16° | 106 cards |
+| E | §3b | Volume over his left ear: lower halves lifted 5–11° | — |
+| E | §4 | His right side ends curled outward 10–18° | 94 cards |
+| E | §5 | Crown flattened: tips tilted up to 8° toward the scalp | 43 cards |
 | D-shading | `common.py` materials, `export_textures.py` | **Shading/texture**: no texture repaint; NS maps restored to 128-centred encoding; preview material: alpha clip 0.35, NS B → roughness; scalp-transferred normals regenerated from the deformed cap (validated to render identically to the shipped normals) | — |
 | E | `final_renders.py` | Gameplay-readability renders (1080p third-person perspective, head ≈ 45 px), strong side light, Mustafar light | — |
 
 Net displacement of `HairPlanes_M` vs the original (un-mirrored chain): stage A mean 3.0 mm / max 3.0 cm, B +1.0 mm, C +0.9 mm / max 3.3 cm, D +2.8 mm / max 6.2 cm (the lengthened ear cards and the swept front). `hair_cap`: **unchanged** in the final.
 
 ## Things tried and rejected (visible in the iteration history)
-* **Mirroring the asset** to put the part on his left: evidence-based but rejected by the user (kept the game's side).
+* **Mirroring the asset** to put the part on his left: rejected by the user for variant 1; used for variant 2 at the user's request (the supplied frame has the part on his left).
 * **Per-vertex radial "slimming" field** (first stage A attempt): crushed cards into flat vertical strips at the back —
   replaced by per-card bends toward the skin.
 * **Yawing temple cards 35° over the ears** and a **fringe yaw**: produced splayed, spiky locks at the temples and a lock

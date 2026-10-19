@@ -3,7 +3,7 @@ import bpy, bmesh, os, sys, json, numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import common
 argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else ['C']
-stage = argv[0]
+stage = argv[0]; fbx_rel = argv[1] if len(argv) > 1 else os.path.join('output', 'anakin_rots_hair_final.fbx')
 rep = {}
 def mesh_stats(o):
     me = o.data; me.calc_loop_triangles()
@@ -52,7 +52,7 @@ for name in ('HairPlanes_M', 'hair_cap'):
     rep['vs_original'][name] = {'face_count_equal': len(faces) == len(orig_faces[name]), 'face_vertex_sets_equal': same_faces,
                                 'uv_loop_count_equal': len(uv) == len(orig_uv[name]), 'uv_max_abs_diff_sorted': float(np.abs(np.sort(uv.ravel()) - np.sort(orig_uv[name].ravel())).max())}
 # round-trip: re-import the exported FBX into a clean scene
-fbx = os.path.join(common.PROJ, 'output', 'anakin_rots_hair_final.fbx')
+fbx = os.path.join(common.PROJ, fbx_rel)
 if os.path.exists(fbx):
     stage_co = {name: np.array([bpy.data.objects[name].matrix_world @ v.co for v in bpy.data.objects[name].data.vertices]) for name in ('HairPlanes_M', 'hair_cap')}
     bpy.ops.wm.read_factory_settings(use_empty=True)

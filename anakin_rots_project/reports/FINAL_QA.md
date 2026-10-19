@@ -57,3 +57,27 @@ Mustafar views, or the gameplay-distance view (`output/comparison/`). Roots are 
 * Frosty Editor import and an in-game runtime test (Windows + game files required). See GAME_COMPATIBILITY.md §Frosty.
 * The original textures at their shipped resolution (only lossy, resized uploads were available).
 * LOD1+ (the export contained LOD0 only).
+
+
+---
+# Variant 2 — `output/variant_2_coruscant_frame/` (stage E, mirrored chain)
+Built to match the user-supplied Coruscant front frame. Same checks (`reports/qa_geometry_E.json`):
+
+| Check | HairPlanes_M | hair_cap |
+|---|---|---|
+| Vertices / triangles | 9519 / 10432 | 704 / 1230 |
+| Non-finite / degenerate tris / unweighted verts | 0 / 0 / 0 | 0 / 0 / 0 |
+| Faces identical (vertex sets) / UVs identical | True / max diff 0.0 | True / max diff 0.0 |
+| Mirror | X mirrored, winding reversed, `FACIAL_LOD1_L_*`↔`_R_*` swapped (verified in the group list) | X mirrored |
+| Round trip (fresh import of the FBX) | 9519 verts, max position diff 2.2e-08 m, 15 groups | 704 verts, 4 groups |
+| Skeleton in FBX | `Reference`, 247 bones | |
+
+* Hair-to-skin signed distance (mm) 1st/5th/50th pct: mirrored original -5.3 / -0.0 / 22.4 → variant 2 -4.2 / 1.5 / 23.8; vertices pushed deeper than the shipped clearance by > 1 mm: 4.
+* Card length ratio vs original: min 0.84, median 1.01, 95th pct 1.35, max 1.36 (cap 1.35).
+* Vertex displacement vs the mirrored original: mean 6.4 mm, 95th pct 25.4 mm, max 64.7 mm.
+* Visual: `comparison/E_vs_user_frame_big.jpg` (the supplied frame next to the front and three-quarter renders),
+  `comparison/original_vs_final.png`, `lighting_side_and_mustafar.png`, `gameplay_distance_zoom.png`.
+* Matches the frame: part on his left, wide front wave across the forehead to his right temple and down the cheek,
+  his left side pushed back over the ear, both ears covered, chin-length sides with outward-curling ends, flat crown.
+  Does not match: the frame's wave is one smooth thick lock; here it is a group of straight-hanging cards, so it reads
+  as a looser, stragglier lock at close range (fine at gameplay distance).

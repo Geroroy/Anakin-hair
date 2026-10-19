@@ -16,9 +16,12 @@
 | Materials | none in Frosty export | none required; Blender preview materials exist only in the .blend | ✔ |
 
 ## What changed and why it matters for the game
-1. **No mirror.** The final keeps the game's handedness (part on Anakin's right). A mirrored variant exists in
-   `working/C.blend` only; if it is ever exported, the facial L/R vertex groups are swapped and the tangent handedness
-   must be checked in-game.
+1. **Variant 1: no mirror.** Keeps the game's handedness (part on Anakin's right).
+   **Variant 2 (`output/variant_2_coruscant_frame/`) is mirrored in X** to match the supplied frame: face winding is
+   reversed so normals still point outward, the facial `FACIAL_LOD1_L_*`/`_R_*` vertex groups are swapped (the
+   centreline bones Head/HeadRoll/Neck/Neck1 need no change), and `hair_cap` is mirrored too. *Risk:* the tangent
+   handedness of the unchanged UVs is mirrored relative to the geometry, so the NS map's X detail flips; on
+   cylindrical strands this is visually negligible but it is the first thing to check in-game under side light.
 2. **Vertex positions** of `HairPlanes_M` moved (cumulative mean ≈ 8 mm, max ≈ 6 cm for the lengthened ear cards);
    `hair_cap` is **byte-identical in position** to the original. No vertex was moved closer to the skin than it was in
    the shipped asset.

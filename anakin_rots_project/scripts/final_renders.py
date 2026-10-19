@@ -5,12 +5,13 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import common
 from mathutils import Vector
 argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else ['C']
-stage = argv[0]
+stage = argv[0]; skip_original = len(argv) > 1 and argv[1] == 'skip-original'
 OUT = os.path.join(common.PROJ, 'renders', 'final_' + stage); os.makedirs(OUT, exist_ok=True)
 def rig(blend):
     bpy.ops.wm.open_mainfile(filepath=blend)
     common.clear_render_rig(); cams = common.setup_cameras(); common.setup_render(res=1024, samples=32); return cams
-for label, blend in (('final', os.path.join(common.PROJ, 'working', '%s.blend' % stage)), ('original', os.path.join(common.PROJ, 'working', '01_original_with_head_materials.blend'))):
+jobs = [('final', os.path.join(common.PROJ, 'working', '%s.blend' % stage))] + ([] if skip_original else [('original', os.path.join(common.PROJ, 'working', '01_original_with_head_materials.blend'))])
+for label, blend in jobs:
     cams = rig(blend)
     common.setup_lights('neutral'); common.render_views(OUT, label + '_neutral', cams)
     common.setup_lights('side'); common.render_views(OUT, label + '_side', cams, views=['front', 'right', 'three_quarter'])

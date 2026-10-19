@@ -11,6 +11,9 @@ src = os.path.join(common.PROJ, 'working', 'positions_%s.npz' % stage)
 D = np.load(src); meta = json.loads(str(D['meta'])) if 'meta' in D else {}
 bpy.ops.wm.open_mainfile(filepath=os.path.join(common.PROJ, 'working', '01_original_with_head_materials.blend'))
 hair = bpy.data.objects['HairPlanes_M']; cap = bpy.data.objects['hair_cap']; head = bpy.data.objects['HEAD_REF']
+for m in list(bpy.data.materials):
+    if m.name.startswith('M_Hair'): bpy.data.materials.remove(m)
+common.assign_materials(hair, cap, head)   # rebuild with the current preview shading values
 
 def apply(obj, co, nrm, mirrored):
     me = obj.data
