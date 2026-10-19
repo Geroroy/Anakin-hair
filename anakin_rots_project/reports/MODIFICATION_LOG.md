@@ -88,6 +88,17 @@ authored wave shape and its texture mapping.
 | G | §6 | Back layers ±6 % low-frequency modulation | 71 cards |
 | G | §7 | Top sleek: tips > 17 mm off the scalp (el > 38°) tilted 5–10° toward it | 45 cards |
 | G | guard | Eye-zone enforcement + smoothed collision | 1 bend step, 0 violations |
+| H (variant 7) | `stage_H_ahsoka.py` §1 | Ears hidden: cards above/around the ears lengthened (≤ ×1.25) to below the ear and swung 14–26° so they hang over / in front of the ear 2–3 cm off the skin; then an iterative pass pulls the three nearest cards over every ear sample point still visible to a front or side ray (< 3 card triangles crossed) | 76 cards + 162 / 159 bend steps |
+| H | §1b | Sideburns kept, lengthened to the jaw in front of the ear (tip z ≤ 1.618), 1–2° outward, turned over the ear front | 88 cards |
+| H | §2 | Length: sides to the chin (tip z 1.572), back to the collar (1.542), ±6 mm layering, k 0.85–1.15 | 250 cards |
+| H | §3 | Front wave: sweep-side cards cut to brow height, mid-length bulged 13° off the forehead (airy wave), guided 14° to his left temple (0.088, −0.078, 1.703) and tips turned 12° back over the ear; his-left temple cards hanging forward of the eye line turned back 8° | 24 + 3 cards |
+| H | §3b | Right temple lock: cards already falling down his right temple lengthened (≤ ×1.25) to tip z ≈ 1.69 and curved 13° down the temple in front of the ear | 14 cards |
+| H | §4 | Top: mid-length lifted 5° (×0.7–1.3) off the scalp for cards < 28 mm from it; stray tips > 26 mm tilted back | 82 cards |
+| H | §4b | Side volume: temples (above the ear cover) held at 23 ± 6 mm; cheek/jaw level pushed out to 42 mm (+4 mm on his left), tips > 52 mm bent in | 131 cards |
+| H | §5 | Ends: lowest ~35 % curled outward 10–14° in lobes (t³), last ~15 % turned back under (t⁷) | 237 cards |
+| H | §6 | Waves: grouped yaw ±11° (t^1.8) with a −9° counter yaw on the lower part (t⁴), lobes of 4–6 cards | 290 cards |
+| H | §7 | Back layers ±5 % low-frequency modulation | 78 cards |
+| H | guards | Final ear pass; ear-cover tips > 32 mm off the skin folded in (66); top tips > 24 mm tilted to the scalp (17); eye-zone enforcement (0 steps); smoothed collision (855 vertex moves) | — |
 | D-shading | `common.py` materials, `export_textures.py` | **Shading/texture**: no texture repaint; NS maps restored to 128-centred encoding; preview material: alpha clip 0.35, NS B → roughness; scalp-transferred normals regenerated from the deformed cap (validated to render identically to the shipped normals) | — |
 | E | `final_renders.py` | Gameplay-readability renders (1080p third-person perspective, head ≈ 45 px), strong side light, Mustafar light | — |
 
@@ -121,6 +132,23 @@ Net displacement of `HairPlanes_M` vs the original (un-mirrored chain): stage A 
 3. Sideburn cards (absent on the sculpt) shortened and tucked; sides narrowed (jaw fullness 25 mm, flare 4–8°).
 4. Top sleeked (17 mm threshold). Not achievable with the cards: the sculpt's carved, continuous locks read as
    strand groups; the lower ends stay wispier than the sculpt's solid mass.
+
+## Variant 7 iteration notes (5 rounds, `renders/H/H_vs_ahsoka.jpg`)
+1. Round 1 (from En): fringe still a flat dark lock across the forehead, top spiky, both ears visible. The first ear
+   metric (any vertex within 12 mm) read 100 % while the render showed the ears: replaced by ray casts from the
+   ear's front and outer faces counting crossed card triangles.
+2. Round 2: front wave bulged 13° off the forehead and turned back at the temple (reads as the airy wave of the
+   frames); top lift halved; sideburns lengthened to the jaw. His right ear still read through a gap behind the
+   sideburn.
+3. Round 3: ear-cover loop (nearest cards over still-visible ear points) — 0.83 coverage, no visible gain: the cards
+   it picked were rooted beside the ear and only rotated in place.
+4. Round 4: candidates restricted to cards rooted above the ear point, 10° steps, and the temple-tightening /
+   eye-line steps no longer touch ear-cover cards. Ears hidden in all six views; three his-left cards flew out to
+   6 cm off the cheek.
+5. Round 5: ear-cover tips > 32 mm folded back in, sideburn outward blend removed (closes the temple gap), top
+   silhouette pass. Kept as variant 7. Not achievable with the cards: the frames' thick continuous curls (the
+   mass stays strand-like, wispy at the ends), the ear lobe row of the metric (sideburn tips are alpha-faded
+   there) and the warm golden colour (textures untouched).
 
 ## Known remaining gaps vs. the film
 * Ears are covered on roughly the upper half to two thirds (stage D); Full coverage needs new cards
