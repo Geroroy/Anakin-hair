@@ -10,8 +10,8 @@ references/   cropped Episode III frames used as the visual target (+ reference 
 scripts/      the whole pipeline (see scripts/run_all.sh)
 working/      incremental .blend files per iteration, NumPy geometry/positions per stage
 renders/      per-iteration renders, comparison sheets, final QA renders
-output/       anakin_rots_hair_final.fbx / .blend, textures/, comparison/, variant_N_*/ (variants 1–7)
-prompts/      the Claude Code task prompts used for variants 4, 6 and 7
+output/       anakin_rots_hair_final.fbx / .blend, textures/, comparison/, variant_N_*/ (variants 1–7, 7c)
+prompts/      the Claude Code task prompts used for variants 4, 6, 7 and 7c
 reports/      ASSET_ANALYSIS, TEXTURE_ANALYSIS, MODIFICATION_LOG, GAME_COMPATIBILITY, FINAL_QA (+ raw dumps/JSON)
 ```
 

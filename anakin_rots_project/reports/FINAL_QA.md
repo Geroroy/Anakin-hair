@@ -165,3 +165,30 @@ Built to match the four *Ahsoka* "World Between Worlds" frames (`references/ref_
   Does not match: the frames' thick continuous curl masses (the sides stay strand-like card groups, wispy at the
   ends); a small skin gap at his right temple above the sideburn; the warm golden colour (textures and preview
   material untouched).
+
+# Variant 7c — `output/variant_7c_right_ends_rots/` (stage Hr, un-mirrored, from variant 7 / stage H)
+Variant 7 with only his RIGHT side ends re-laid after `references/ref_target_rots_portrait_front.jpg` (Episode III promo
+portrait): the region the user circled on the variant 7 front view (61 cards, azimuth +45…+135°, elevation < 22°,
+tip z < 1.635). Round 2 of three, chosen by the user. Checks from `reports/qa_geometry_Hr.json`:
+
+| Check | HairPlanes_M | hair_cap |
+|---|---|---|
+| Vertices / triangles | 9519 / 10432 | 704 / 1230 |
+| Non-finite / degenerate tris / unweighted verts | 0 / 0 / 0 | 0 / 0 / 0 |
+| Faces identical (vertex sets) / UVs identical | True / max diff 0.0 | True / max diff 0.0 |
+| Mirror / winding / group names | none / original / original | none; cap positions unchanged (0.0e+00 m vs H) |
+| Round trip (fresh import of the FBX) | 9519 verts, max position diff 2.2e-08 m, 15 groups, custom normals | 704 verts, 4 groups |
+| Skeleton in FBX / units | `Reference`, 247 bones / UnitScaleFactor 100, Y-up, +Z front | |
+
+* Scope: 1300 of 9519 hair vertices moved vs variant 7 (all inside the region), mean 8.0 mm, max 37.5 mm; every vertex
+  outside the region is bit-identical to variant 7 (asserted by the stage script).
+* Region tip height: median 1.588 m (min 1.566, max 1.653) — the jaw–chin line of the portrait; tip-to-skin 36–42 mm.
+* Hair-to-skin signed distance (mm) 1st/5th/50th pct: original −1.2 / 3.6 / 20.6 → variant 7c −0.5 / 4.3 / 23.3; vertices pushed deeper than the shipped clearance by > 1 mm: 31 (unchanged from variant 7).
+* Card length ratio vs original: min 0.80, median 1.13, 95th pct 1.35, max 1.35.
+* Eye zone: 0 cards with vertices below z 1.715 in front of the eyes.
+* Vertex displacement vs original: mean 10.7 mm, 95th pct 37.1 mm, max 118 mm.
+* Visual: `comparison/Hr_right_ends_before_after.jpg` (portrait beside variant 7 and 7c: front, three-quarter, right),
+  `comparison/Hr_vs_H_front.jpg`, `original_vs_final.png`, `lighting_side_and_mustafar.png`, `gameplay_distance_zoom.png`.
+* Matches the portrait: the wisps hanging to the neck are gone; the side ends stop at the jaw–chin line, sit a little
+  fuller off the cheek and turn outward in a soft C-curve, grouped in clumps. Does not match: the portrait's dense,
+  smooth wave mass (the clumps remain strand-like card groups) and its colour (textures untouched).

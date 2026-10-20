@@ -99,6 +99,12 @@ authored wave shape and its texture mapping.
 | H | §6 | Waves: grouped yaw ±11° (t^1.8) with a −9° counter yaw on the lower part (t⁴), lobes of 4–6 cards | 290 cards |
 | H | §7 | Back layers ±5 % low-frequency modulation | 78 cards |
 | H | guards | Final ear pass; ear-cover tips > 32 mm off the skin folded in (66); top tips > 24 mm tilted to the scalp (17); eye-zone enforcement (0 steps); smoothed collision (855 vertex moves) | — |
+| Hr (variant 7c) | `stage_Hr_right_ends_rots.py` region | Only his RIGHT side ends (the region the user circled on the variant 7 front view): hanging cards az +45…+135°, el < 22°, tip z < 1.635 — 61 cards; every other card asserted bit-identical to H | 61 cards / 1419 vertices |
+| Hr | §1 | Length: tips below z 1.590 shortened to the jaw–chin line (1.590 ± 8 mm by lobe, k ≥ 0.80) | 28 cards |
+| Hr | §2 | Rounded bob: mid-length (t ≈ 0.55) lifted so it sits ~36 mm off the cheek (≤ 12°, t^0.8); tips kept within 42 mm | 19 cards |
+| Hr | §3 | Ends: soft outward C-curve 20° (×0.85–1.0 by lobe, t²) then 10° out-and-under (t⁵), tips pointing out and slightly back toward the neck as in the Episode III portrait | 61 cards |
+| Hr | §4 | Clumping: cards yawed up to 6° toward their lobe centre so lobes read as thick wavy clumps | 61 cards |
+| Hr | guards | Tips within 42 mm of the skin, nothing below z 1.57, smoothed collision restricted to the region (27 vertex moves) | — |
 | D-shading | `common.py` materials, `export_textures.py` | **Shading/texture**: no texture repaint; NS maps restored to 128-centred encoding; preview material: alpha clip 0.35, NS B → roughness; scalp-transferred normals regenerated from the deformed cap (validated to render identically to the shipped normals) | — |
 | E | `final_renders.py` | Gameplay-readability renders (1080p third-person perspective, head ≈ 45 px), strong side light, Mustafar light | — |
 
@@ -149,6 +155,16 @@ Net displacement of `HairPlanes_M` vs the original (un-mirrored chain): stage A 
    silhouette pass. Kept as variant 7. Not achievable with the cards: the frames' thick continuous curls (the
    mass stays strand-like, wispy at the ends), the ear lobe row of the metric (sideburn tips are alpha-faded
    there) and the warm golden colour (textures untouched).
+
+## Variant 7c iteration notes (3 rounds, `renders/Hr/Hr_right_ends_before_after.jpg`)
+Target: `references/ref_target_rots_portrait_front.jpg` (Episode III promo portrait), his right jaw only; base variant 7.
+1. Round 1 (fullness 32 mm, C-curve 15°, clump 4°): wisps to the neck gone, ends at the jaw–chin line, mild outward
+   flick — close to the photo's silhouette but thin.
+2. Round 2 (36 mm, 20°, 6°): a little rounder and more clumped. **Chosen by the user** after reviewing round 3.
+3. Round 3 (44 mm, 26°, clump 8°, region widened to el < 28°, tips ≤ 50 mm): rounder and thicker; the user judged it
+   too much and asked for round 2, which is what variant 7c ships.
+An earlier attempt at the same region against the *Ahsoka* frames (flip curls rolling outward and up, three rounds)
+was reviewed and rejected by the user: with these cards the upward hook reads as a splayed wing of strands.
 
 ## Known remaining gaps vs. the film
 * Ears are covered on roughly the upper half to two thirds (stage D); Full coverage needs new cards
