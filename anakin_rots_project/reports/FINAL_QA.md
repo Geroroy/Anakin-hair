@@ -192,3 +192,33 @@ tip z < 1.635). Round 2 of three, chosen by the user. Checks from `reports/qa_ge
 * Matches the portrait: the wisps hanging to the neck are gone; the side ends stop at the jaw–chin line, sit a little
   fuller off the cheek and turn outward in a soft C-curve, grouped in clumps. Does not match: the portrait's dense,
   smooth wave mass (the clumps remain strand-like card groups) and its colour (textures untouched).
+
+# Variant 8 — `output/variant_8_narrow_sides/` (stage J, un-mirrored, from variant 7c / stage Hr)
+Variant 7c with narrower sides after `references/ref_target_rots_portrait_front_b.jpg` (Episode III promo portrait):
+only the side masses on both sides (the boxes the user drew on the variant 7c front view; 211 cards, |azimuth| 40…140°,
+elevation < 40°). One round, confirmed by the user. Checks from `reports/qa_geometry_J.json`:
+
+| Check | HairPlanes_M | hair_cap |
+|---|---|---|
+| Vertices / triangles | 9519 / 10432 | 704 / 1230 |
+| Non-finite / degenerate tris / unweighted verts | 0 / 0 / 0 | 0 / 0 / 0 |
+| Faces identical (vertex sets) / UVs identical | True / max diff 0.0 | True / max diff 0.0 |
+| Mirror / winding / group names | none / original / original | none; cap positions unchanged (0.0e+00 m vs Hr) |
+| Round trip (fresh import of the FBX) | 9519 verts, max position diff 2.2e-08 m, 15 groups, custom normals | 704 verts, 4 groups |
+| Skeleton in FBX / units | `Reference`, 247 bones / UnitScaleFactor 100, Y-up, +Z front | |
+
+* Scope: 3578 of 9519 hair vertices moved vs variant 7c (all inside the region), mean 9.3 mm, max 91 mm; every vertex
+  outside the region is bit-identical to variant 7c (asserted by the stage script).
+* Side width at z 1.58–1.66, 90th-percentile hair-to-skin distance: his right 47 → 45 mm, his left 48 → 39 mm; outline
+  beyond the head: 44 → 44 mm (held by the variant 7c end curls), 53 → 31 mm. Region tip-to-skin median 23 mm, max 29 mm.
+* Ear cover (ray casts, ≥ 3 card triangles): his right 0.83 front / 0.96 side (unchanged), his left 1.00 front / 0.50 side;
+  both ears read as hidden in the six neutral renders.
+* Hair-to-skin signed distance (mm) 1st/5th/50th pct: original −1.2 / 3.6 / 20.6 → variant 8 −0.4 / 4.0 / 20.9; vertices pushed deeper than the shipped clearance by > 1 mm: 31.
+* Card length ratio vs original: min 0.77, median 1.12, 95th pct 1.35, max 1.37 (bends changing the root-to-tip chord; no scale step in this stage).
+* Eye zone: 0 cards with vertices below z 1.715 in front of the eyes.
+* Vertex displacement vs original: mean 10.8 mm, 95th pct 36.1 mm, max 97 mm.
+* Visual: `comparison/J_sides_front.jpg` (portrait | variant 7c | variant 8, front), `comparison/J_sides_before_after.jpg`
+  (plus right and left views), `original_vs_final.png`, `lighting_side_and_mustafar.png`, `gameplay_distance_zoom.png`.
+* Matches the portrait: the side masses now sit against the cheeks with the outline ~30–45 mm outside the head instead
+  of 45–55 mm. Does not match: the portrait's dense wave texture and colour (textures untouched); the right-side
+  outline keeps the variant 7c end curls.

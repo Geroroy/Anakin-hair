@@ -105,6 +105,8 @@ authored wave shape and its texture mapping.
 | Hr | §3 | Ends: soft outward C-curve 20° (×0.85–1.0 by lobe, t²) then 10° out-and-under (t⁵), tips pointing out and slightly back toward the neck as in the Episode III portrait | 61 cards |
 | Hr | §4 | Clumping: cards yawed up to 6° toward their lobe centre so lobes read as thick wavy clumps | 61 cards |
 | Hr | guards | Tips within 42 mm of the skin, nothing below z 1.57, smoothed collision restricted to the region (27 vertex moves) | — |
+| J (variant 8) | `stage_J_narrow_sides.py` region | Only the side masses on BOTH sides (the two boxes the user drew on the variant 7c front view): hanging cards with \|az\| 40…140°, el < 40° — 211 cards; every other card asserted bit-identical to Hr | 211 cards / 4685 vertices |
+| J | §1 | Narrower sides after the Episode III portrait: four passes bending each card toward its closest skin point until the mid-length (t ≈ 0.6) sits ≤ 24 mm and the tip ≤ 26 mm off the skin (temples 20 mm), ≤ 14° per pass; smoothed collision restricted to the region (354 vertex moves) | 418 bend steps |
 | D-shading | `common.py` materials, `export_textures.py` | **Shading/texture**: no texture repaint; NS maps restored to 128-centred encoding; preview material: alpha clip 0.35, NS B → roughness; scalp-transferred normals regenerated from the deformed cap (validated to render identically to the shipped normals) | — |
 | E | `final_renders.py` | Gameplay-readability renders (1080p third-person perspective, head ≈ 45 px), strong side light, Mustafar light | — |
 
@@ -165,6 +167,14 @@ Target: `references/ref_target_rots_portrait_front.jpg` (Episode III promo portr
    too much and asked for round 2, which is what variant 7c ships.
 An earlier attempt at the same region against the *Ahsoka* frames (flip curls rolling outward and up, three rounds)
 was reviewed and rejected by the user: with these cards the upward hook reads as a splayed wing of strands.
+
+## Variant 8 iteration notes (1 round, `renders/J/J_sides_before_after.jpg`)
+Target: `references/ref_target_rots_portrait_front_b.jpg` (Episode III promo portrait), both side masses; base variant 7c.
+One round (tip 26 mm / mid 24 mm / temples 20 mm) was confirmed by the user as is. Measured at z 1.58–1.66: the 90th
+percentile hair-to-skin distance went from 47 / 48 mm (his right / left) to 45 / 39 mm and the outline beyond the head
+from 44 / 53 mm to 44 / 31 mm; on his right the outline is held by the variant 7c end curls, which were kept. The
+ray-cast ear cover is unchanged on his right (0.83 front / 0.96 side) and drops to 0.5 on the side rays of his left ear
+(the ear still reads as hidden in the left view).
 
 ## Known remaining gaps vs. the film
 * Ears are covered on roughly the upper half to two thirds (stage D); Full coverage needs new cards
